@@ -11,6 +11,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule }   from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FavoritoComponent
   ],
   imports: [
-    BrowserModule, MatFormFieldModule, ReactiveFormsModule, 
+    BrowserModule, MatFormFieldModule, ReactiveFormsModule, FormsModule,
     MatSelectModule,  MatInputModule, MatCheckboxModule, 
     MatRadioModule, MatTableModule, BrowserAnimationsModule
   ],
