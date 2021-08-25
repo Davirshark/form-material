@@ -8,6 +8,10 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -15,9 +19,14 @@ import {MatRadioModule} from '@angular/material/radio';
     FavoritoComponent
   ],
   imports: [
-    BrowserModule, MatFormFieldModule, ReactiveFormsModule, MatSelectModule,  MatInputModule, MatCheckboxModule, MatRadioModule
+    BrowserModule, MatFormFieldModule, ReactiveFormsModule, 
+    MatSelectModule,  MatInputModule, MatCheckboxModule, 
+    MatRadioModule, MatTableModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
