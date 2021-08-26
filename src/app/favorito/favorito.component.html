@@ -1,7 +1,7 @@
 <form [formGroup]="formCliente">
     
   <mat-form-field class="example-full-width"  hideRequiredMarker>
-        <input matInput placeholder="Nome"  name="nome" formControlName="nome" [(ngModel)]="example.nome" >
+        <input matInput placeholder="Nome"  name="nome" formControlName="nome" [(ngModel)]="example.nome" required >
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Data de nascimento">
@@ -12,11 +12,11 @@
       </mat-form-field>
     
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Número" name="numero" formControlName="numero" [(ngModel)]="example.numero">
+        <input matInput placeholder="Número" name="numero" formControlName="numero" [(ngModel)]="example.numero" required>
       </mat-form-field>
     
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Bairro" name="bairro" formControlName="bairro" [(ngModel)]="example.bairro">
+        <input matInput placeholder="Bairro" name="bairro" formControlName="bairro" [(ngModel)]="example.bairro" required>
       </mat-form-field>
     
     <mat-form-field appearance="fill">
