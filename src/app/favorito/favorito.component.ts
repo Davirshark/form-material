@@ -44,18 +44,22 @@ export class FavoritoComponent implements OnInit {
   nome = '';
   bairro = '';
   numero = '';
-  displayedColumns = ['position', 'nome', 'bairro', 'numero'];
+  displayedColumns = ['id', 'nome', 'bairro', 'numero'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); 
-    filterValue = filterValue.toLowerCase(); 
+
+  
+
+  procurarCliente(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
     this.dataSource.filter = filterValue;
   }
+  
 
   addElement() {
     ELEMENT_DATA.push({
-      position: 2,
+      id: Math.floor(Math.random() *10806),
       nome: this.example.nome,
       bairro: this.example.bairro,
       numero: this.example.numero
@@ -66,14 +70,14 @@ export class FavoritoComponent implements OnInit {
 
 export interface Element {
   nome: string;
-  position: number;
+  id: number;
   bairro: string;
   numero: string;
 }
 
 const ELEMENT_DATA: Element[] = [
-  { position: 1, nome: 'Davi', bairro: 'Vila PEry', numero: '5' },
-  { position: 2, nome: 'Elias', bairro: 'Papicu', numero: '100' },
+  { id:Math.floor(Math.random() * 256), nome: 'Davi', bairro: 'Vila Pery', numero: '5' },
+  { id:Math.floor(Math.random() * 256), nome: 'Elias', bairro: 'Papicu', numero: '100' },
   
 ];
 

@@ -1,6 +1,7 @@
 <form [formGroup]="formCliente">
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Nome"  name="nome" formControlName="nome" [(ngModel)]="example.nome">
+    
+  <mat-form-field class="example-full-width"  hideRequiredMarker>
+        <input matInput placeholder="Nome"  name="nome" formControlName="nome" [(ngModel)]="example.nome" >
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Data de nascimento">
@@ -51,31 +52,36 @@
 
   <mat-table #table [dataSource]="dataSource">
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
     </ng-container>
 
     <!-- nome Column -->
     <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef> nome </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
     </ng-container>
 
     <!-- bairro Column -->
     <ng-container matColumnDef="bairro">
-      <mat-header-cell *matHeaderCellDef> bairro </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Bairro </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.bairro}} </mat-cell>
     </ng-container>
 
     <!-- numero Column -->
     <ng-container matColumnDef="numero">
-      <mat-header-cell *matHeaderCellDef> numero </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Número </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.numero}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Procurar cliente</mat-label>
+    <input matInput (keyup)="procurarCliente($event)" placeholder="Ex. Norgana" #input>
+  </mat-form-field>
 </div>
