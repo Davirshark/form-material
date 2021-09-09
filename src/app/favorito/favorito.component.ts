@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validator } from '@angular/forms';
 import { Cliente } from './cliente'
+import { favoritoService }  from './favoritoservice.componente'
 
 @Component({ selector: 'app-favorito', 
 templateUrl: './favorito.component.html', 
@@ -12,25 +13,27 @@ export class FavoritoComponent implements OnInit {
   formCliente: FormGroup;
   example = { nome: "",
       bairro: "",
-      numero: "" };
+      numero: "", rua: "", dataNascimento: "", cidade:"", uf: "" };
 
 
-  constructor(builder: FormBuilder) {
+  constructor(builder: FormBuilder, private favoritoService: favoritoService) {
     this.formCliente = builder.group({
       nome: "",
       bairro: "",
-      numero: ""
+      numero: "", dataNascimento:"", rua: "", cidade: "", id: "", uf: ""
     });
   }
+
   ngOnInit() {
     this.createForm(new Cliente());
   }
 
   createForm(cliente: Cliente) {
     this.formCliente = new FormGroup({
+      id: new FormControl(cliente.id),
       nome: new FormControl(cliente.nome),
       tipo: new FormControl(cliente.tipo),
-      data: new FormControl(cliente.data),
+      dataNascimento: new FormControl(cliente.dataNascimento),
       rua: new FormControl(cliente.rua),
       numero: new FormControl(cliente.numero),
       ativo: new FormControl(cliente.ativo),
@@ -47,16 +50,12 @@ export class FavoritoComponent implements OnInit {
   displayedColumns = ['id', 'nome', 'bairro', 'numero'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-
-  
-
   procurarCliente(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
     this.dataSource.filter = filterValue;
   }
   
-
   addElement() {
     ELEMENT_DATA.push({
       id: Math.floor(Math.random() *10806),
@@ -65,6 +64,9 @@ export class FavoritoComponent implements OnInit {
       numero: this.example.numero
     });
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    this.favoritoService.salvaCliente(this.formCliente.value).subscribe(response => {
+      ELEMENT_DATA.push(response)
+    });
   }
 }
 
@@ -78,7 +80,4 @@ export interface Element {
 const ELEMENT_DATA: Element[] = [
   { id:Math.floor(Math.random() * 256), nome: 'Davi', bairro: 'Vila Pery', numero: '5' },
   { id:Math.floor(Math.random() * 256), nome: 'Elias', bairro: 'Papicu', numero: '100' },
-  
 ];
-
-

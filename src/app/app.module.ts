@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule }   from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { FormsModule }   from '@angular/forms';
   imports: [
     BrowserModule, MatFormFieldModule, ReactiveFormsModule, FormsModule,
     MatSelectModule,  MatInputModule, MatCheckboxModule, 
-    MatRadioModule, MatTableModule, BrowserAnimationsModule
+    MatRadioModule, MatTableModule, BrowserAnimationsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

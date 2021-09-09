@@ -50,3 +50,10 @@
   mat-elevation-z8 {
       width: 75%;
   }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
+}

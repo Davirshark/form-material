@@ -1,13 +1,14 @@
 export class Cliente {
+    id: number;
     nome: string = '';
-    data: string= '';
+    dataNascimento: string= '';
     rua: string = '';
     numero: number;
     ativo: boolean = false;
     bairro: string = '';
     uf: null;
     cidade: string;
-    tipo: string;
+    tipo: string = "gold";
   }
 
   
