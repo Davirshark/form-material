@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AppComponent } from './app.component';
-
 import { FavoritoComponent } from './favorito/favorito.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
@@ -18,13 +17,14 @@ import { AppRoutingModule } from './app-routing-module';
 import { ListaComponent } from './lista/lista.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { ClienteComponent } from './lista/clienteid.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FavoritoComponent,
-    ListaComponent, 
+    ListaComponent, ClienteComponent
 
   ],
   imports: [

@@ -1,20 +1,19 @@
-
 <mat-list role="list">
     <mat-card-header>
       <mat-card-title>Usuários</mat-card-title>
-      </mat-card-header> 
+      </mat-card-header>
+      <div class="nome">
       <mat-list-item *ngFor="let cliente of clientes" (click)="selecionaCliente(cliente)">{{cliente.nome}}</mat-list-item>
+    </div>
   </mat-list>
 
-  <div>
     <button mat-raised-button color="primary" class="button" (click)="onClick()">
         Voltar
     </button>
-  </div>
 
-
+  <mat-form-field class="example-form-field" appearance="fill">
     <input matInput type="text" [(ngModel)]="value">
   
-
+  </mat-form-field>
   <button *ngIf="value"  aria-label="Clear" (click)="search()" >Pesquisar</button>
  

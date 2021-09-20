@@ -10,7 +10,7 @@ templateUrl: './favorito.component.html',
 styleUrls: ['./favorito.component.css'] }) 
 
 export class FavoritoComponent implements OnInit {
-
+contador = 1;
   formCliente: FormGroup;
   example = { nome: "",
       bairro: "",
