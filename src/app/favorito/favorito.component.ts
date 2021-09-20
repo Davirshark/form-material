@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FormGroup, FormControl, FormBuilder, Validator } from '@angular/forms';
 import { Cliente } from './cliente'
 import { favoritoService }  from './favoritoservice.componente'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({ selector: 'app-favorito', 
 templateUrl: './favorito.component.html', 
@@ -16,7 +17,7 @@ export class FavoritoComponent implements OnInit {
       numero: "", rua: "", dataNascimento: "", cidade:"", uf: "" };
 
 
-  constructor(builder: FormBuilder, private favoritoService: favoritoService) {
+  constructor(builder: FormBuilder, private favoritoService: favoritoService, private router: Router, private route: ActivatedRoute) {
     this.formCliente = builder.group({
       nome: "",
       bairro: "",
@@ -65,8 +66,9 @@ export class FavoritoComponent implements OnInit {
     });
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     this.favoritoService.salvaCliente(this.formCliente.value).subscribe(response => {
-      ELEMENT_DATA.push(response)
-    });
+      ELEMENT_DATA.push(response),  this.router.navigate(['lista'], { relativeTo: this.route }) 
+    }); 
+
   }
 }
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AppComponent } from './app.component';
+
 import { FavoritoComponent } from './favorito/favorito.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
@@ -13,17 +14,23 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing-module';
+import { ListaComponent } from './lista/lista.component';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FavoritoComponent
+    FavoritoComponent,
+    ListaComponent, 
+
   ],
   imports: [
     BrowserModule, MatFormFieldModule, ReactiveFormsModule, FormsModule,
-    MatSelectModule,  MatInputModule, MatCheckboxModule, 
-    MatRadioModule, MatTableModule, BrowserAnimationsModule, HttpClientModule
+    MatSelectModule,  MatInputModule, MatCheckboxModule,  MatListModule, MatCardModule,
+    MatRadioModule, MatTableModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

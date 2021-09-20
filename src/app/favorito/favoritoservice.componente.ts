@@ -22,4 +22,8 @@ export class favoritoService {
     return this.http.delete<any>(`${this.baseurl}/clientes/${id}`);
   }
 
+  procuraCliente(nome: string): Observable<any>{
+    return this.http.get<any>(`${this.baseurl}/clientes/getClientesByNome?nome=${nome}`);
+  }
+
 }

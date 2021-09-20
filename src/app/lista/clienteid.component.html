@@ -1,0 +1,19 @@
+<header>
+    <h1>Dados do Cliente</h1>
+</header>
+<body>
+    <div>
+        <h3 style="text-transform: uppercase;">{{clientecad.nome}}</h3>
+        <h5>{{clientecad.dataNascimento}}</h5>
+        <h5>{{clientecad.rua}}, {{clientecad.numero}}</h5>
+        <h5>{{clientecad.bairro}}</h5>
+        <h5>{{clientecad.cidade}}, {{clientecad.uf}}</h5>
+        <h5>{{clientecad.tipo}}</h5>
+    </div>
+   <div>
+        <button mat-raised-button color="primary" class="button" (click)="onClick()">
+            Voltar
+        </button>
+    </div>
+</body>
+
