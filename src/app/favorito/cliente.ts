@@ -8,7 +8,7 @@ export class Cliente {
     bairro: string = '';
     uf: null;
     cidade: string;
-    tipo: string = "gold";
+    tipo: string = "";
   }
 
   
